@@ -69,7 +69,7 @@ def login():
         if username in AUTHORIZED_USERS:
             token = jwt.encode({"username": username}, app.secret_key, algorithm="HS256")
             session["token"] = token
-            print(token)
+            
             return render_template("chat.html", messages=[])
         
     return render_template("login.html")
